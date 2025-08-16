@@ -7,6 +7,25 @@
     padding-inline: 13px;
     padding-block: 12px;
     border: 1px solid #fff;
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        border-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    &::after {
+        transition: background-color 0.3s ease-in-out;
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 0 4px 15px 0 #fff;
+            &.button--icon::after {
+                background-color: #fff;
+            }
+        }
+    }
 }
 .button--yelow {
     border-color: $accentColor;
@@ -21,26 +40,30 @@
     font-family: "Cormorant SC", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    padding-inline: 16px;
+    padding-inline: 12px;
+    padding-block-start: 13px;
     display: flex;
     align-items: center;
     column-gap: 11px;
     border-width: 2px;
     box-shadow: 0 4px 15px 0 $accentColor;
-    &::after {
-        content: "";
-        width: 51px;
-        height: 2px;
-        border-radius: 5px;
-    }
-    &.button--yelow::after {
-        background-color: $accentColor;
-    }
-    &.button--yelow-bg::after {
-        background-color: #000;
+    @media (min-width: 992px) {
+        &::after {
+            content: "";
+            width: 51px;
+            height: 2px;
+            border-radius: 5px;
+        }
+        &.button--yelow::after {
+            background-color: $accentColor;
+        }
+        &.button--yelow-bg::after {
+            background-color: #000;
+        }
     }
 }
 
+//section header---------------------
 .section-header {
     margin: 0 auto;
     text-align: center;
