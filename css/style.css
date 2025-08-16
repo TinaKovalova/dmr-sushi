@@ -114,7 +114,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.button {
+.button, .specialities-filter__lable {
   font-family: "DM Sans", sans-serif;
   color: #fff;
   text-transform: capitalize;
@@ -127,19 +127,19 @@ input[type=number] {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
-.button::after {
+.button::after, .specialities-filter__lable::after {
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
 @media (any-hover: hover) {
-  .button:hover {
+  .button:hover, .specialities-filter__lable:hover {
     background-color: transparent;
     color: #fff;
     border-color: #fff;
     -webkit-box-shadow: 0 4px 15px 0 #fff;
             box-shadow: 0 4px 15px 0 #fff;
   }
-  .button:hover.button--icon::after {
+  .button:hover.button--icon::after, .specialities-filter__lable:hover.button--icon::after {
     background-color: #fff;
   }
 }
@@ -149,7 +149,7 @@ input[type=number] {
   color: #f5bd33;
 }
 
-.button--yelow-bg {
+.button--yelow-bg, .specialities-filter__lable:has(.specialities-filter__checkbox:checked) {
   border-color: #000;
   background-color: #f5bd33;
   color: #000;
@@ -185,7 +185,7 @@ input[type=number] {
   .button--icon.button--yelow::after {
     background-color: #f5bd33;
   }
-  .button--icon.button--yelow-bg::after {
+  .button--icon.button--yelow-bg::after, .button--icon.specialities-filter__lable:has(.specialities-filter__checkbox:checked)::after {
     background-color: #000;
   }
 }
@@ -514,8 +514,6 @@ input[type=number] {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
   .menu__list .meal-card {
     width: 33.33%;
@@ -542,6 +540,11 @@ input[type=number] {
     background-color: #1e1e1e;
     width: 36.66%;
   }
+  .meal-card:hover .meal-card__image {
+    -webkit-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+            transform: scale(1.01);
+  }
   .meal-card:hover .meal-card__content {
     padding-inline: 35px;
   }
@@ -551,13 +554,6 @@ input[type=number] {
   max-height: 293px;
   aspect-ratio: 380/293;
   overflow: hidden;
-}
-@media (any-hover: hover) {
-  .meal-card__image-link:hover .meal-card__image {
-    -webkit-transform: scale(1.03);
-        -ms-transform: scale(1.03);
-            transform: scale(1.03);
-  }
 }
 .meal-card__image {
   width: 100%;
@@ -596,7 +592,7 @@ input[type=number] {
     padding-inline: 30px;
   }
 }
-.meal-card__title {
+.meal-card__title, .speciality-card__title {
   font-family: "Cinzel", serif;
   font-size: 20px;
   font-weight: 700;
@@ -604,16 +600,16 @@ input[type=number] {
   color: #f3d382;
 }
 @media (min-width: 992px) {
-  .meal-card__title {
+  .meal-card__title, .speciality-card__title {
     font-size: 25px;
   }
 }
-.meal-card__title-link {
+.meal-card__title-link, .speciality-card__title-link {
   -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 @media (any-hover: hover) {
-  .meal-card__title-link:hover {
+  .meal-card__title-link:hover, .speciality-card__title-link:hover {
     color: #f5bd33;
   }
 }
@@ -645,7 +641,7 @@ input[type=number] {
     height: 40px;
   }
 }
-.meal-card .button {
+.meal-card .button, .meal-card .specialities-filter__lable {
   justify-self: flex-end;
   text-transform: capitalize;
 }
@@ -659,16 +655,187 @@ input[type=number] {
   height: 100%;
 }
 .luxury-background.luxury-background--01 {
-  background: url("/src/images/luxurybg-01.jpg") center 100% no-repeat fixed;
+  background: url("/src/images/luxurybg-01.jpg") center/100% 100% no-repeat fixed;
 }
 .luxury-background.luxury-background--01::after {
   background: radial-gradient(49.7% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
 }
 .luxury-background.luxury-background--02 {
-  background: url("/src/images/luxurybg-02.jpg") center 100% no-repeat fixed;
+  background: url("/src/images/luxurybg-02.jpg") center/100% 100% no-repeat fixed;
 }
 .luxury-background.luxury-background--02::after {
   background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
+}
+
+.specialities__container {
+  -webkit-padding-before: 50px;
+          padding-block-start: 50px;
+}
+@media (min-width: 992px) {
+  .specialities__container {
+    -webkit-padding-before: 100px;
+            padding-block-start: 100px;
+  }
+}
+.specialities__header {
+  max-width: 396px;
+}
+.specialities__header:not(:last-child) {
+  margin-bottom: 30px;
+}
+.specialities__form:not(:last-child) {
+  margin-bottom: 50px;
+}
+.specialities__list > * {
+  max-width: 100%;
+  min-height: 450px;
+}
+.specialities__list > *:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.specialities__list > *:nth-child(even) > .speciality-card__image-link::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.specialities-filter {
+  grid-auto-flow: dense;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px;
+}
+.specialities-filter__lable {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+@media (min-width: 992px) {
+  .specialities-filter__lable {
+    -ms-flex-preferred-size: 144px;
+        flex-basis: 144px;
+  }
+}
+.specialities-filter__checkbox {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.speciality-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+@media (min-width: 992px) {
+  .speciality-card {
+    gap: 50px;
+  }
+}
+.speciality-card__image-link {
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #2e2e2e;
+  position: absolute;
+}
+@media (max-width: 767.98px) {
+  .speciality-card__image-link {
+    width: 100%;
+  }
+  .speciality-card__image-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 35, 0.7);
+  }
+}
+@media (min-width: 768px) {
+  .speciality-card__image-link {
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+    min-width: 50%;
+  }
+}
+@media (any-hover: hover) {
+  .speciality-card__image-link:hover .speciality-card__image {
+    -webkit-transform: scale(1.01);
+        -ms-transform: scale(1.01);
+            transform: scale(1.01);
+  }
+}
+.speciality-card__image {
+  width: 101%;
+  height: 101%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: right;
+     object-position: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.speciality-card__content {
+  -ms-flex-item-align: center;
+      align-self: center;
+  position: relative;
+  padding-block: 30px;
+  max-height: 100%;
+}
+@media (min-width: 580px) {
+  .speciality-card__content {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+  }
+}
+@media (min-width: 768px) {
+  .speciality-card__content {
+    -ms-flex-preferred-size: 39%;
+        flex-basis: 39%;
+    max-width: 462px;
+  }
+}
+@media (max-width: 767.98px) {
+  .speciality-card__content {
+    padding-inline: 30px;
+  }
+}
+.speciality-card__title:not(:last-child) {
+  margin-bottom: 10px;
+}
+.speciality-card__price {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  color: #f3d382;
+  font-size: 35px;
+  line-height: 1.34;
+}
+.speciality-card__description {
+  line-height: 1.3;
+}
+.speciality-card__description:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 html {
