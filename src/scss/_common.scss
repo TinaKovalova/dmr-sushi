@@ -1,1 +1,88 @@
 @use "variables" as *;
+.button {
+    font-family: "DM Sans", sans-serif;
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+    padding-inline: 13px;
+    padding-block: 12px;
+    border: 1px solid #fff;
+}
+.button--yelow {
+    border-color: $accentColor;
+    color: $accentColor;
+}
+.button--yelow-bg {
+    border-color: #000;
+    background-color: $accentColor;
+    color: #000;
+}
+.button--icon {
+    font-family: "Cormorant SC", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-inline: 16px;
+    display: flex;
+    align-items: center;
+    column-gap: 11px;
+    border-width: 2px;
+    box-shadow: 0 4px 15px 0 $accentColor;
+    &::after {
+        content: "";
+        width: 51px;
+        height: 2px;
+        border-radius: 5px;
+    }
+    &.button--yelow::after {
+        background-color: $accentColor;
+    }
+    &.button--yelow-bg::after {
+        background-color: #000;
+    }
+}
+
+.section-header {
+    margin: 0 auto;
+    text-align: center;
+    // .section-header__subtitle
+
+    &__subtitle {
+        font-family: "Great Vibes", serif;
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: 4.8px;
+        text-transform: capitalize;
+        color: #fff;
+        .section-header--main & {
+            font-size: 25px;
+        }
+    }
+
+    // .section-header__title
+
+    &__title {
+        font-family: "DM Serif Display", serif;
+        font-size: 40px;
+        line-height: 1.375;
+        color: $secondaryTextColor;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        .section-header--main & {
+            font-family: "Cinzel", serif;
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.33;
+            text-transform: uppercase;
+            &:not(:last-child) {
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    // .section-header__text
+
+    &__text {
+    }
+}

@@ -8,7 +8,7 @@ import VitePluginWebpAndPath from "vite-plugin-webp-and-path";
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  // base:"//",
+  // base:"/dmr-sushi/",
   plugins: [
     injectHTML(), VitePluginWebpAndPath()],
   build: {

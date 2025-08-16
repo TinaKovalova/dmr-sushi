@@ -12,10 +12,10 @@ html {
 }
 
 body {
-    font-family: "EudoxusSans", sans-serif;
-    font-size: 18px;
-    line-height: 1.8;
-    font-weight: 500;
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    color: $primaryTextColor;
+    background-color: #1e1e1e;
 }
 .wrapper {
     min-height: 100%;
@@ -28,7 +28,7 @@ body {
 }
 
 [class$="__container"] {
-    max-width: 1288px; //1240px
-    padding-inline: 24px;
+    max-width: #{$maxWidthContainer}+ "px";
+    padding-inline: #{$paddingContainer}+ "px";
     margin: 0 auto;
 }

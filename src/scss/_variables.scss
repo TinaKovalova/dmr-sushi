@@ -1,10 +1,14 @@
 $maxWidth: 1440;
-$minWidth: 375;
-$containerWidth: 1240;
-$paddingContainer: 24;
+$minWidth: 320;
+$containerWidth: 1200;
+$paddingContainer: 15;
 $maxWidthContainer: $containerWidth + $paddingContainer * 2;
 
 $laptop: 1199.98px;
 $tablet: 991.98px;
 $mobile: 767.98px;
 $smallMobile: 479.98px;
+
+$primaryTextColor: #d9d9d9;
+$secondaryTextColor: #f3d382;
+$accentColor: #f5bd33;
