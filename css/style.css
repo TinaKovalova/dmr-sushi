@@ -1129,6 +1129,201 @@ input[type=number] {
   }
 }
 
+.footer {
+  position: relative;
+  height: 100svh;
+  overflow-y: auto;
+}
+.footer__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.footer__background::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(74.22% 60.15% at 50% 39.85%, rgba(0, 0, 0, 0.6) 0%, rgba(30, 30, 30, 0.8) 56.25%, #1e1e1e 86.46%);
+  backdrop-filter: blur(3.25px);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer__background-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.footer__container {
+  min-height: 100%;
+  -webkit-padding-before: 100px;
+          padding-block-start: 100px;
+  -webkit-padding-after: 50px;
+          padding-block-end: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: 30px;
+}
+@media (min-width: 992px) {
+  .footer__container {
+    -webkit-padding-after: 100px;
+            padding-block-end: 100px;
+  }
+}
+.footer__top {
+  row-gap: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer__top, .footer__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__header {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.34;
+  color: #f3d382;
+  text-align: center;
+  max-width: 850px;
+  text-wrap: balance;
+}
+.footer__header::first-letter {
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .footer__header {
+    font-size: 55px;
+  }
+}
+.footer__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  gap: 20px;
+}
+.footer__contacts:not(:last-child) {
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .footer__contacts {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer__contacts:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+.footer__contacts-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  max-width: 366px;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  line-height: 1.3;
+}
+.footer__contacts-link-icon {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  fill: #f5bd33;
+}
+.footer__button.button {
+  font-family: "Cormorant SC", serif;
+  text-transform: none;
+}
+@media (max-width: 767.98px) {
+  .footer__button.button {
+    width: 100%;
+  }
+}
+.footer__bottom {
+  row-gap: 30px;
+}
+.footer__logo .logo {
+  width: 72px;
+  height: 72px;
+}
+.footer__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px 25px;
+}
+.footer__social-item {
+  font-family: "Cormorant SC", serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.footer__social-item::after {
+  content: "";
+  width: 79.78%;
+  height: 2px;
+  background-color: #f5be32;
+  display: block;
+  margin: 0 auto;
+  -webkit-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
+}
+@media (any-hover: hover) {
+  .footer__social-item:has(.footer__social-link:hover)::after {
+    width: 30%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
