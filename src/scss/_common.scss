@@ -34,6 +34,7 @@
 .button--yelow-bg {
     border-color: #000;
     background-color: $accentColor;
+    border-color: $accentColor;
     color: #000;
 }
 .button--icon {
@@ -42,7 +43,7 @@
     text-transform: uppercase;
     padding-inline: 12px;
     padding-block-start: 13px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     column-gap: 11px;
     border-width: 2px;
