@@ -234,7 +234,7 @@
         }
     }
     &.luxury-background--02 {
-        background: url("/src/images/luxurybg-02.jpg") center / cover no-repeat fixed;
+        background: url("/src/images/luxurybg-02.jpg") 50% 25% / cover no-repeat fixed;
         &::after {
             background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
         }
