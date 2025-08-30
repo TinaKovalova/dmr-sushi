@@ -496,9 +496,9 @@
         position: absolute;
         top: 0;
         right: 0;
-        // width: 74.42%; /* 893/1200 */
         width: 893px;
-        min-height: 100%;
+        max-width: 100%;
+        height: 100%;
         aspect-ratio: 893 / 500;
     }
 
