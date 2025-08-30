@@ -1,7 +1,7 @@
-@mixin appearance-effect {
+@mixin appearance-effect($duration: 0.4s) {
     transform: translate3d(0, 70%, 0) rotate3d(1, 0, 0, -50deg);
     opacity: 0;
-    transition-duration: 0.4s;
+    transition-duration: $duration;
     transition-property: transform, opacity;
     transition-timing-function: ease-out;
     ._animated & {

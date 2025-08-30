@@ -1,6 +1,6 @@
 @use "variables" as *;
 @use "common";
-
+@use "mixins" as *;
 .hero {
     height: 100svh;
     position: relative;
@@ -97,25 +97,19 @@
                 margin-bottom: 50px;
             }
         }
-        & + .menu__list > .meal-card {
-            transform: translateY(10%);
-            opacity: 0;
-            transition-property: transform, opacity;
-            transition-duration: 0.6s;
-            transition-timing-function: ease-out;
-            &:nth-child(1) {
-                transition-delay: 0.8s;
-            }
-            &:nth-child(2) {
-                transition-delay: 0.9s;
-            }
-            &:nth-child(3) {
-                transition-delay: 1s;
-            }
-        }
+
         &._animated + .menu__list > .meal-card {
             transform: translateY(0);
             opacity: 1;
+            &:nth-child(1) {
+                transition-delay: 0s, 0s, 0.8s, 0.8s;
+            }
+            &:nth-child(2) {
+                transition-delay: 0s, 0s, 0.9s, 0.9s;
+            }
+            &:nth-child(3) {
+                transition-delay: 0s, 0s, 1s, 1s;
+            }
         }
     }
 
@@ -139,16 +133,17 @@
     flex-direction: column;
     background: #2e2e2e;
     box-shadow: 0 4px 30px 0 rgba(245, 190, 50, 0.1);
-    transition:
-        width 0.3s ease-in-out,
-        background-color 0.3s ease-in-out;
+    width: 33.33%;
+    transform: translateY(10%);
+    opacity: 0;
+    transition-property: width, background-color, transform, opacity;
+    transition-duration: 0.4s, 0.4s, 0.6s, 0.6s;
+    transition-timing-function: ease-out;
+
     @media (any-hover: hover) {
         &:hover {
             background-color: #1e1e1e;
-            width: 36.66%;
-            & .meal-card__image {
-                transform: scale(1.01);
-            }
+            width: 36.67%;
             & .meal-card__content {
                 padding-inline: 35px;
             }
@@ -170,21 +165,25 @@
         height: 100%;
         object-fit: cover;
         aspect-ratio: 380 / 293;
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-out;
+        @media (any-hover: hover) {
+            &:hover {
+                transform: scale(1.01);
+            }
+        }
     }
 
     // .meal-card__content
 
     &__content {
         flex-grow: 1;
-
         padding-block: 20px;
         padding-inline: 10px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         row-gap: 10px;
-        transition: padding-inline 0.3s ease-in-out;
+        transition: padding-inline 0.3s ease-out;
         @media (min-width: 991.98px) {
             padding-block: 40px;
             padding-inline: 30px;
@@ -358,17 +357,23 @@
     position: relative;
     display: flex;
     gap: 20px;
-
+    perspective: 800px;
+    perspective-origin: center;
     @media (min-width: 992px) {
         gap: 50px;
     }
-    // .speciality-card__image-link
 
     &__image-link {
         min-height: 100%;
         overflow: hidden;
         background-color: #2e2e2e;
         position: absolute;
+        opacity: 0;
+        transition: opacity 0.8s ease-out;
+        ._animated & {
+            transform: translateX(0);
+            opacity: 1;
+        }
         @media (max-width: 767.98px) {
             width: 100%;
             &::after {
@@ -416,7 +421,8 @@
         position: relative;
         padding-block: 30px;
         max-height: 100%;
-
+        @include appearance-effect(0.6s);
+        transform: translate3d(0, 50%, 0) rotate3d(1, 0, 0, -20deg);
         @media (min-width: 580px) {
             flex-basis: 60%;
         }
@@ -574,6 +580,7 @@
         display: flex;
         align-items: center;
         padding-block: 30px;
+
         &::after {
             content: "";
             position: absolute;
@@ -601,6 +608,7 @@
         column-gap: 14px;
         position: relative;
         z-index: 2;
+        @include appearance-effect(0.6s);
         @media (max-width: 380px) {
             flex-direction: column;
         }

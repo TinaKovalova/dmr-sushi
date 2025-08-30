@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
     })
 
  
-    const sectionHeaderObserver = new IntersectionObserver((entries, observer) => {
+    const elementsObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("_animated");
@@ -29,8 +29,21 @@ window.addEventListener("load", () => {
     );
     const sectionHeaders = document.querySelectorAll(".section-header");
     if (sectionHeaders.length > 0) {
-        sectionHeaders.forEach(sectionHeader=>sectionHeaderObserver.observe(sectionHeader))
+        sectionHeaders.forEach((sectionHeader) =>
+          elementsObserver.observe(sectionHeader)
+        );
     }
+     const specialityCards = document.querySelectorAll(".speciality-card ");
+     if (specialityCards.length > 0) {
+       specialityCards.forEach((specialityCard) =>
+         elementsObserver.observe(specialityCard)
+       );
+    }
+    const eventCards = document.querySelectorAll(".event");
+    if (specialityCards.length > 0) {
+      eventCards.forEach((eventCard) => elementsObserver.observe(eventCard));
+    }
+
 
 
     const footerObserver = new IntersectionObserver(
@@ -45,22 +58,7 @@ window.addEventListener("load", () => {
       { threshold: 0.5}
     );
     footerObserver.observe(document.querySelector(".footer"));
-
-    const sectionObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("_observed");
-            // observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    const sections = document.querySelectorAll("section");
-    if (sections.length > 0) {
-        sections.forEach(section=> sectionObserver.observe(section))
-    }
+ 
 
 });
 

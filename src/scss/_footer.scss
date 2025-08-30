@@ -81,8 +81,7 @@
         text-align: center;
         max-width: 850px;
         text-wrap: balance;
-        @include appearance-effect;
-        transition-duration: 0.5s;
+        @include appearance-effect(0.5s);
         &::first-letter {
             text-transform: uppercase;
         }
