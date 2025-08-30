@@ -337,6 +337,7 @@ input[type=number] {
 }
 @media (max-width: 991.98px) {
   .navigation__list {
+    color: #f3d382;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -349,7 +350,10 @@ input[type=number] {
     font-size: 35px;
     row-gap: 30px;
     padding-inline: 40px;
-    padding-block: 30px;
+    -webkit-padding-before: 50px;
+            padding-block-start: 50px;
+    -webkit-padding-after: 30px;
+            padding-block-end: 30px;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;

@@ -7,7 +7,9 @@ import VitePluginWebpAndPath from "vite-plugin-webp-and-path";
 export default defineConfig({
   // base:"/dmr-sushi/",
   plugins: [
-    injectHTML(), VitePluginWebpAndPath()],
+    injectHTML(),
+    VitePluginWebpAndPath()
+  ],
 });
 
 
