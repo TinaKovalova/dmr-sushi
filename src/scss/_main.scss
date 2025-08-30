@@ -68,10 +68,13 @@
     & .button {
         transform: translateY(40%);
         opacity: 0;
-        transition-duration: 0.6s;
-        transition-property: transform, opacity;
-        transition-timing-function: ease-out;
-        transition-delay: 1s;
+        transition:
+            background-color 0.3s ease-in-out,
+            color 0.3s ease-in-out,
+            border-color 0.3s ease-in-out,
+            box-shadow 0.3s ease-in-out,
+            transform 0.6s ease-out 1s,
+            opacity 0.6s ease-out 1s;
     }
 }
 
@@ -133,7 +136,6 @@
     flex-direction: column;
     background: #2e2e2e;
     box-shadow: 0 4px 30px 0 rgba(245, 190, 50, 0.1);
-    width: 33.33%;
     transform: translateY(10%);
     opacity: 0;
     transition-property: width, background-color, transform, opacity;

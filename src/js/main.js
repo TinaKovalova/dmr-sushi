@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("_animated");
-                // observer.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         })
      },
@@ -33,32 +33,31 @@ window.addEventListener("load", () => {
           elementsObserver.observe(sectionHeader)
         );
     }
-     const specialityCards = document.querySelectorAll(".speciality-card ");
-     if (specialityCards.length > 0) {
-       specialityCards.forEach((specialityCard) =>
-         elementsObserver.observe(specialityCard)
-       );
-    }
-    const eventCards = document.querySelectorAll(".event");
-    if (specialityCards.length > 0) {
-      eventCards.forEach((eventCard) => elementsObserver.observe(eventCard));
-    }
-
-
-
-    const footerObserver = new IntersectionObserver(
+    
+   
+    const halfThresholdObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("_animated");
-            // observer.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.5}
+      { threshold: 0.5 }
     );
-    footerObserver.observe(document.querySelector(".footer"));
- 
+  halfThresholdObserver.observe(document.querySelector(".footer"));
+
+  const specialityCards = document.querySelectorAll(".speciality-card ");
+  if (specialityCards.length > 0) {
+    specialityCards.forEach((specialityCard) =>
+      halfThresholdObserver.observe(specialityCard)
+    );
+  }
+  const eventCards = document.querySelectorAll(".event");
+  if (specialityCards.length > 0) {
+    eventCards.forEach((eventCard) => halfThresholdObserver.observe(eventCard));
+  }
 
 });
 

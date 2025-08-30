@@ -140,10 +140,13 @@
         text-transform: none;
         transform: translateY(40%);
         opacity: 0;
-        transition-property: transform, opacity;
-        transition-timing-function: ease-out;
-        transition-delay: 0.9s;
-        transition-duration: 0.4s;
+        transition:
+            background-color 0.3s ease-in-out,
+            color 0.3s ease-in-out,
+            border-color 0.3s ease-in-out,
+            box-shadow 0.3s ease-in-out,
+            transform 0.4s ease-out 0.9s,
+            opacity 0.4s ease-out 0.9s;
         @media (max-width: 767.98px) {
             width: 100%;
         }
