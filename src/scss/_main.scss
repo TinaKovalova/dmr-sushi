@@ -60,6 +60,18 @@
         &:not(:last-child) {
             margin-bottom: 49px;
         }
+        &._animated + .button {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    & .button {
+        transform: translateY(40%);
+        opacity: 0;
+        transition-duration: 0.6s;
+        transition-property: transform, opacity;
+        transition-timing-function: ease-out;
+        transition-delay: 1s;
     }
 }
 
@@ -84,6 +96,26 @@
             &:not(:last-child) {
                 margin-bottom: 50px;
             }
+        }
+        & + .menu__list > .meal-card {
+            transform: translateY(10%);
+            opacity: 0;
+            transition-property: transform, opacity;
+            transition-duration: 0.6s;
+            transition-timing-function: ease-out;
+            &:nth-child(1) {
+                transition-delay: 0.8s;
+            }
+            &:nth-child(2) {
+                transition-delay: 0.9s;
+            }
+            &:nth-child(3) {
+                transition-delay: 1s;
+            }
+        }
+        &._animated + .menu__list > .meal-card {
+            transform: translateY(0);
+            opacity: 1;
         }
     }
 
@@ -259,6 +291,18 @@
         &:not(:last-child) {
             margin-bottom: 30px;
         }
+        & + .specialities__form {
+            transform: translateY(40%);
+            opacity: 0;
+            transition-duration: 0.6s;
+            transition-property: transform, opacity;
+            transition-timing-function: ease-out;
+            transition-delay: 1s;
+        }
+        &._animated + .specialities__form {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
     &__form {
         &:not(:last-child) {
@@ -433,6 +477,18 @@
         &:not(:last-child) {
             margin-bottom: 30px;
         }
+        & + .dining__actions {
+            transform: translateY(40%);
+            opacity: 0;
+            transition-duration: 0.6s;
+            transition-property: transform, opacity;
+            transition-timing-function: ease-out;
+            transition-delay: 1s;
+        }
+        &._animated + .dining__actions {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     // .dining__actions
@@ -557,7 +613,6 @@
     }
     &__price {
         font-size: 45px;
-        // align-self: flex-start;
     }
 
     // .event__title
@@ -605,6 +660,25 @@
                 margin-bottom: 50px;
             }
         }
+        & + .our-story__content-wrapper .our-story__content,
+        & + .our-story__content-wrapper .our-story__image-content {
+            opacity: 0;
+            transition-duration: 0.6s;
+            transition-property: transform, opacity;
+            transition-timing-function: ease-out;
+            transition-delay: 1s;
+        }
+        & + .our-story__content-wrapper .our-story__content {
+            transform: translateX(10%);
+        }
+        & + .our-story__content-wrapper .our-story__image-content {
+            transform: translateX(-10%);
+        }
+        &._animated + .our-story__content-wrapper .our-story__content,
+        &._animated + .our-story__content-wrapper .our-story__image-content {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
     }
 
     // .our-story__content-wrapper
@@ -629,6 +703,8 @@
         display: grid;
         grid-template-columns: repeat(2, 50%);
         grid-template-rows: repeat(2, 1fr);
+        position: relative;
+        z-index: 1;
 
         @media (min-width: 700px) {
             min-width: 40%;

@@ -1,0 +1,11 @@
+@mixin appearance-effect {
+    transform: translate3d(0, 70%, 0) rotate3d(1, 0, 0, -50deg);
+    opacity: 0;
+    transition-duration: 0.4s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-out;
+    ._animated & {
+        transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 0deg);
+        opacity: 1;
+    }
+}
