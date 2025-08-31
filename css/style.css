@@ -686,7 +686,7 @@ input[type=number] {
   -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
 }
-@media (any-hover: hover) {
+@media (any-hover: hover) and (min-width: 992px) {
   .meal-card:hover {
     background-color: #1e1e1e;
     width: 36.67%;
@@ -697,9 +697,14 @@ input[type=number] {
 }
 .meal-card__image-link {
   width: 100%;
-  max-height: 293px;
   aspect-ratio: 380/293;
+  height: auto;
   overflow: hidden;
+}
+@media (min-width: 992px) {
+  .meal-card__image-link {
+    height: 293px;
+  }
 }
 .meal-card__image {
   width: 100%;
@@ -870,13 +875,13 @@ input[type=number] {
   display: grid;
   grid-auto-rows: 1fr;
 }
-.specialities__list > *:nth-child(even) {
+.specialities__list > .speciality-card:nth-child(even) {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
-.specialities__list > *:nth-child(even) > .speciality-card__image-link::after {
+.specialities__list > .speciality-card:nth-child(even) > .speciality-card__image-link::after {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -1101,16 +1106,21 @@ input[type=number] {
 .dining__actions:not(:last-child) {
   margin-bottom: 50px;
 }
-.dining__events > *:nth-child(even) {
+.dining__events {
+  width: 100%;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+.dining__events > .event:nth-child(even) {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
-.dining__events > *:nth-child(even) .event__image-wrapper {
+.dining__events > .event:nth-child(even) .event__image-wrapper {
   left: 0;
 }
-.dining__events > *:nth-child(even) .event__content::after {
+.dining__events > .event:nth-child(even) .event__content::after {
   left: auto;
   right: -1px;
   -webkit-transform: rotate(180deg);
@@ -1118,18 +1128,18 @@ input[type=number] {
           transform: rotate(180deg);
 }
 @media (min-width: 768px) {
-  .dining__events > *:nth-child(even) .event__content::after {
+  .dining__events > .event:nth-child(even) .event__content::after {
     right: 95%;
   }
 }
-.dining__events > *:nth-child(even) .event__info {
+.dining__events > .event:nth-child(even) .event__info {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
 @media (max-width: 380px) {
-  .dining__events > *:nth-child(even) .event__info {
+  .dining__events > .event:nth-child(even) .event__info {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1139,10 +1149,10 @@ input[type=number] {
             align-items: flex-end;
   }
 }
-.dining__events > *:nth-child(even) .event__details {
+.dining__events > .event:nth-child(even) .event__details {
   text-align: end;
 }
-.dining__events > *:nth-child(even) .event__title {
+.dining__events > .event:nth-child(even) .event__title {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -1150,6 +1160,7 @@ input[type=number] {
 
 .event {
   min-height: 300px;
+  aspect-ratio: auto;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -1158,7 +1169,7 @@ input[type=number] {
 }
 @media (min-width: 768px) {
   .event {
-    min-height: 500px;
+    aspect-ratio: 1200/500;
   }
 }
 .event__image-wrapper {
@@ -1400,7 +1411,6 @@ input[type=number] {
 
 .footer {
   position: relative;
-  height: 100svh;
   overflow-y: auto;
   -webkit-perspective: 800px;
           perspective: 800px;
@@ -1432,7 +1442,7 @@ input[type=number] {
      object-fit: cover;
 }
 .footer__container {
-  min-height: 100%;
+  min-height: 100svh;
   -webkit-padding-before: 100px;
           padding-block-start: 100px;
   -webkit-padding-after: 50px;
@@ -1505,7 +1515,7 @@ input[type=number] {
 .footer__header::first-letter {
   text-transform: uppercase;
 }
-@media (min-width: 768px) {
+@media (min-width: 962px) {
   .footer__header {
     font-size: 55px;
   }

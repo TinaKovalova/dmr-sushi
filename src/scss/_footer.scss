@@ -2,7 +2,6 @@
 @use "mixins" as *;
 .footer {
     position: relative;
-    height: 100svh;
     overflow-y: auto;
     perspective: 800px;
     perspective-origin: center;
@@ -44,7 +43,7 @@
     // .footer__container
 
     &__container {
-        min-height: 100%;
+        min-height: 100svh;
         padding-block-start: 100px;
         padding-block-end: 50px;
         display: flex;
@@ -85,7 +84,7 @@
         &::first-letter {
             text-transform: uppercase;
         }
-        @media (min-width: 768px) {
+        @media (min-width: 962px) {
             font-size: 55px;
         }
     }
