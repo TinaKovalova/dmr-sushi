@@ -812,22 +812,11 @@ input[type=number] {
   min-height: 250px;
   aspect-ratio: 1440/363;
 }
-.luxury-background::after {
-  content: "";
-  width: 100%;
-  min-height: 100%;
-}
 .luxury-background.luxury-background--01 {
-  background: url("/src/images/luxurybg-01.jpg") center/cover no-repeat;
-}
-.luxury-background.luxury-background--01::after {
-  background: radial-gradient(49.7% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
+  background: radial-gradient(49.7% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%), url("/src/images/luxurybg-01.jpg") center/cover no-repeat;
 }
 .luxury-background.luxury-background--02 {
-  background: url("/src/images/luxurybg-02.jpg") center 40%/cover no-repeat;
-}
-.luxury-background.luxury-background--02::after {
-  background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
+  background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%), url("/src/images/luxurybg-02.jpg") center 40%/cover no-repeat;
 }
 @media (min-width: 768px) {
   .luxury-background.luxury-background--01, .luxury-background.luxury-background--02 {
