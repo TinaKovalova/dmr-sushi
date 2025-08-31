@@ -26,7 +26,7 @@ body {
     }
     & section {
         scroll-margin-top: 70px;
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             scroll-margin-top: 102px;
         }
     }

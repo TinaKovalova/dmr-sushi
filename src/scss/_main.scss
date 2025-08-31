@@ -254,7 +254,9 @@
 }
 
 .luxury-background {
-    height: 363px;
+    width: 100%;
+    min-height: 250px;
+    aspect-ratio: 1440 / 363;
 
     &::after {
         content: "";
@@ -262,15 +264,22 @@
         height: 100%;
     }
     &.luxury-background--01 {
-        background: url("/src/images/luxurybg-01.jpg") center / cover no-repeat fixed;
+        background: url("/src/images/luxurybg-01.jpg") center / cover no-repeat;
         &::after {
             background: radial-gradient(49.7% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
         }
     }
     &.luxury-background--02 {
-        background: url("/src/images/luxurybg-02.jpg") 50% 25% / cover no-repeat fixed;
+        background: url("/src/images/luxurybg-02.jpg") center 40% / cover no-repeat;
         &::after {
             background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
+        }
+    }
+
+    @media (min-width: 768px) {
+        &.luxury-background--01,
+        &.luxury-background--02 {
+            background-attachment: fixed;
         }
     }
 }
@@ -314,10 +323,9 @@
     // .specialities__list
 
     &__list {
-        & > * {
-            max-width: 100%;
-            min-height: 450px;
-        }
+        width: 100%;
+        display: grid;
+        grid-auto-rows: 1fr;
         & > *:nth-child(even) {
             flex-direction: row-reverse;
             & > .speciality-card__image-link::after {
@@ -359,6 +367,7 @@
     position: relative;
     display: flex;
     gap: 20px;
+    overflow: hidden;
     perspective: 800px;
     perspective-origin: center;
     @media (min-width: 992px) {
@@ -366,6 +375,7 @@
     }
 
     &__image-link {
+        aspect-ratio: 686 / 450;
         min-height: 100%;
         overflow: hidden;
         background-color: #2e2e2e;
@@ -406,8 +416,8 @@
     // .speciality-card__image
 
     &__image {
-        width: 101%;
-        height: 101%;
+        min-width: 101%;
+        min-height: 101%;
         object-fit: cover;
         object-position: right;
         position: absolute;

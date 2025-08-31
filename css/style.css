@@ -351,7 +351,7 @@ input[type=number] {
   width: 50px;
   height: 50px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .logo {
     width: 82px;
     height: 82px;
@@ -808,7 +808,9 @@ input[type=number] {
 }
 
 .luxury-background {
-  height: 363px;
+  width: 100%;
+  min-height: 250px;
+  aspect-ratio: 1440/363;
 }
 .luxury-background::after {
   content: "";
@@ -816,16 +818,21 @@ input[type=number] {
   height: 100%;
 }
 .luxury-background.luxury-background--01 {
-  background: url("/src/images/luxurybg-01.jpg") center/cover no-repeat fixed;
+  background: url("/src/images/luxurybg-01.jpg") center/cover no-repeat;
 }
 .luxury-background.luxury-background--01::after {
   background: radial-gradient(49.7% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
 }
 .luxury-background.luxury-background--02 {
-  background: url("/src/images/luxurybg-02.jpg") 50% 25%/cover no-repeat fixed;
+  background: url("/src/images/luxurybg-02.jpg") center 40%/cover no-repeat;
 }
 .luxury-background.luxury-background--02::after {
   background: radial-gradient(65.07% 57.5% at 49.94% 50%, rgba(30, 30, 30, 0) 0%, rgba(30, 30, 30, 0.5) 100%);
+}
+@media (min-width: 768px) {
+  .luxury-background.luxury-background--01, .luxury-background.luxury-background--02 {
+    background-attachment: fixed;
+  }
 }
 
 .specialities__container {
@@ -869,9 +876,10 @@ input[type=number] {
 .specialities__form:not(:last-child) {
   margin-bottom: 50px;
 }
-.specialities__list > * {
-  max-width: 100%;
-  min-height: 450px;
+.specialities__list {
+  width: 100%;
+  display: grid;
+  grid-auto-rows: 1fr;
 }
 .specialities__list > *:nth-child(even) {
   -webkit-box-orient: horizontal;
@@ -922,6 +930,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   gap: 20px;
+  overflow: hidden;
   -webkit-perspective: 800px;
           perspective: 800px;
   -webkit-perspective-origin: center;
@@ -933,6 +942,7 @@ input[type=number] {
   }
 }
 .speciality-card__image-link {
+  aspect-ratio: 686/450;
   min-height: 100%;
   overflow: hidden;
   background-color: #2e2e2e;
@@ -978,8 +988,8 @@ input[type=number] {
   }
 }
 .speciality-card__image {
-  width: 101%;
-  height: 101%;
+  min-width: 101%;
+  min-height: 101%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: right;
@@ -1672,7 +1682,7 @@ body:has(.navigation._open) {
 body section {
   scroll-margin-top: 70px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   body section {
     scroll-margin-top: 102px;
   }
